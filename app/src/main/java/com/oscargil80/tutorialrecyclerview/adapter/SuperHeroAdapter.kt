@@ -22,15 +22,6 @@ class SuperHeroAdapter(
     }
 }
 
-object SuperHeroDiffUtil:DiffUtil.ItemCallback<SuperHero>(){
-    override fun areItemsTheSame(oldItem: SuperHero, newItem: SuperHero): Boolean {
-        return oldItem.realName == newItem.realName
-    }
 
-    override fun areContentsTheSame(oldItem: SuperHero, newItem: SuperHero): Boolean {
-      return oldItem == newItem
-    }
-
-}
 
 // RecyclerView.Adapter<SuperheroViewHolder>()
