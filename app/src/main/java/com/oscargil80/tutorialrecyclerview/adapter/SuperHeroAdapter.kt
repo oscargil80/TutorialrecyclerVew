@@ -10,18 +10,18 @@ import com.oscargil80.tutorialrecyclerview.SuperHero
 
 class SuperHeroAdapter(
 
-    ):    ListAdapter <SuperHero, SuperheroViewHolder>(SuperHeroDiffUtil){
+) : ListAdapter<SuperHero, SuperheroViewHolder>(SuperHeroDiffUtil) {
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): SuperheroViewHolder {
-    val layoutInflater = LayoutInflater.from(parent.context)
+        val layoutInflater: LayoutInflater = LayoutInflater.from(parent.context)
         return SuperheroViewHolder(layoutInflater.inflate(R.layout.item_superhero, parent, false))
     }
 
     override fun onBindViewHolder(holder: SuperheroViewHolder, position: Int) {
-        val item  = getItem(position)
+        val item = getItem(position)
         holder.render(item)
     }
 }
-
 
 
 // RecyclerView.Adapter<SuperheroViewHolder>()
