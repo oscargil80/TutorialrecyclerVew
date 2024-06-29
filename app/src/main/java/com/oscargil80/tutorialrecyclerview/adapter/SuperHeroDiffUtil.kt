@@ -3,13 +3,19 @@ package com.oscargil80.tutorialrecyclerview.adapter
 import androidx.recyclerview.widget.DiffUtil
 import com.oscargil80.tutorialrecyclerview.SuperHero
 
-object SuperHeroDiffUtil: DiffUtil.ItemCallback<SuperHero>(){
-    override fun areItemsTheSame(oldItem: SuperHero, newItem: SuperHero): Boolean {
-        return oldItem.realName == newItem.realName
+class SuperHeroDiffUtil(
+    private val oldList: List<SuperHero>,
+    private val newList: List<SuperHero>
+) : DiffUtil.Callback() {
+    override fun getOldListSize(): Int = oldList.size
+
+   override fun getNewListSize(): Int = newList.size
+
+    override fun areItemsTheSame(oldItemPosition: Int, newItemPosition: Int): Boolean {
+       return oldList[oldItemPosition].realName == newList[  newItemPosition].realName
     }
 
-    override fun areContentsTheSame(oldItem: SuperHero, newItem: SuperHero): Boolean {
-        return oldItem == newItem
+    override fun areContentsTheSame(oldItemPosition: Int, newItemPosition: Int): Boolean {
+        return  oldList[oldItemPosition] == newList[newItemPosition]
     }
-
 }
